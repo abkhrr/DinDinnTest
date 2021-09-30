@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ingredientListFragment"
+        android:icon="@drawable/ic_dish_black_24"
+        app:iconTint="?attr/colorOnSecondary"
+        android:menuCategory="secondary"
+        android:title="@string/ingredient"
+        android:contentDescription=""
+        app:showAsAction="ifRoom" />
+
+</menu>

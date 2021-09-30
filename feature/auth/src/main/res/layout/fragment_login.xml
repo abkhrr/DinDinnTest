@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.ui.LoginFragment"
+        android:background="@color/white"
+        android:theme="@style/Theme.FoodDeliveryMerchant">
+
+        <RelativeLayout
+            android:id="@+id/view_toolbar_login"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_marginTop="@dimen/space_x2"
+            android:layout_marginLeft="@dimen/space_x2"
+            android:layout_marginRight="@dimen/space_x2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/view_app_logo"
+                android:layout_width="@dimen/space_x8"
+                android:layout_height="@dimen/space_x8"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="false"
+                android:layout_centerVertical="true"
+                app:cardBackgroundColor="@color/base_yellow_color"
+                android:layout_marginStart="@dimen/space_x3">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_logo_desk_bell_80"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fdlv"
+                android:fontFamily="@font/segoe_ui_black"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@+id/view_app_logo"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"/>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H, 2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_toolbar_login"
+            app:layout_constraintBottom_toTopOf="@+id/view_welcome_title"
+            android:src="@drawable/ic_svg_login_img"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_welcome_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/welcome_to_fdlv"
+            app:layout_constraintBottom_toTopOf="@+id/view_welcome_message"
+            android:layout_marginStart="@dimen/space_x8"
+            android:textSize="18sp"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/black"
+            app:fontFamily="@font/segoe_ui_semi_bold"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/view_welcome_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/manage_your_restaurant_business_in_one_hand"
+            app:layout_constraintBottom_toTopOf="@+id/view_email_text_input"
+            android:layout_marginStart="@dimen/space_x8"
+            android:textSize="12sp"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/black"
+            app:fontFamily="@font/segoe_ui_regular"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/view_email_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_x5"
+            app:layout_constraintBottom_toTopOf="@+id/view_password_text_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/space_x8"
+            android:layout_marginLeft="@dimen/space_x8"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_svg_icon_person_small"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:boxStrokeWidth="@dimen/extra_space_01"
+            app:boxBackgroundColor="#FFFF"
+            app:boxStrokeColor="#EDEDED"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/email"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/space_x3"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/text_x4" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/view_password_text_input"
+            android:layout_width="@dimen/space_x0"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/view_login_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/space_x8"
+            android:layout_marginStart="@dimen/space_x8"
+            android:layout_marginTop="@dimen/space_x3"
+            app:hintEnabled="false"
+            android:layout_marginBottom="30dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:boxStrokeWidth="@dimen/extra_space_01"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_svg_icon_password_small"
+            app:boxBackgroundColor="#FFFF"
+            app:boxStrokeColor="#EDEDED"
+            app:endIconDrawable="@drawable/ic_password_selector"
+            android:paddingTop="@dimen/space_x0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:padding="@dimen/space_x3"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:fontFamily="@font/poppins_regular"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="@dimen/text_x4"  />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/view_login_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@+id/view_register_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:enabled="false"
+            android:insetRight="@dimen/space_x2"
+            android:insetLeft="@dimen/space_x2"
+            android:insetBottom="@dimen/space_x1"
+            android:insetTop="@dimen/space_x1"
+            android:fontFamily="@font/poppins_bold"
+            android:backgroundTint="@color/login_button_state_color"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/view_register_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/poppins_bold"
+            android:insetLeft="@dimen/space_x2"
+            android:insetTop="@dimen/space_x1"
+            android:insetRight="@dimen/space_x2"
+            android:insetBottom="@dimen/space_x1"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@color/COLOR_STEPPER_POSITIVE"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/COLOR_STEPPER_POSITIVE" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

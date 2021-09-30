@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/fragment_login">
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.food_dev.auth.login.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/to_register"
+            app:destination="@+id/fragment_register"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="com.food_dev.auth.register.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/to_login"
+            app:destination="@+id/fragment_login"/>
+
+    </fragment>
+
+</navigation>

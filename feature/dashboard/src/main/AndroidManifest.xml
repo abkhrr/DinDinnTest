@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.food_dev.dashboard">
+
+    <application>
+        <activity
+            android:name="com.food_dev.dashboard.activity.ui.MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

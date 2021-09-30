@@ -1,0 +1,22 @@
+<resources>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_fdlv">Welcome to FDLV</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="manage_your_restaurant_business_in_one_hand">Manage your restaurant business in one hand</string>
+    <string name="fdlv">FDLV</string>
+    <string name="already_have_account_b_login_b">Already Have Account? <b>Login.</b></string>
+    <string name="register_merchant">Register\nMerchant</string>
+    <string name="create_password">Create Password</string>
+    <string name="store_name">Store Name</string>
+    <string name="person_in_charge">Person in charge</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="form_data_input">Form Data Input</string>
+    <string name="confirm">Confirm</string>
+    <string name="terms_login">Phone number and Whatsapp will be used for communication about registration process, getting info for incomes, Banks update verification, and Withdrawal</string>
+    <string name="open_hours">Open hours</string>
+    <string name="closed_hours">Closed hours</string>
+</resources>

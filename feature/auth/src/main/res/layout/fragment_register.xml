@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".register.ui.RegisterFragment"
+        android:background="@color/white"
+        android:theme="@style/Theme.FoodDeliveryMerchant">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/view_register_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_x75"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/ic_svg_register_bg">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_back_btn"
+                    android:layout_width="@dimen/space_x8"
+                    android:layout_height="@dimen/space_x8"
+                    android:background="@drawable/ic_arrow_back_light_24"
+                    android:layout_marginStart="@dimen/space_x3"
+                    android:layout_marginTop="@dimen/space_x5"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/view_title_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/toolbar_back_btn"
+                    android:layout_marginStart="@dimen/space_x5"
+                    android:layout_marginTop="@dimen/space_x4"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/register_merchant"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/space_x7"
+                    tools:ignore="SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/view_subtitle_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_title_login"
+                    android:layout_marginStart="@dimen/space_x5"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="@dimen/space_x1"
+                    android:text="@string/already_have_account_b_login_b"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/space_x4"
+                    tools:ignore="SpUsage" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/view_email_text_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_x5"
+                app:layout_constraintTop_toBottomOf="@+id/view_register_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginStart="@dimen/space_x8"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_svg_email_icon_small"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                app:boxStrokeWidth="@dimen/extra_space_01"
+                app:boxStrokeColor="@color/softer_gray"
+                app:boxBackgroundColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/space_x3"
+                    android:hint="@string/email"
+                    android:fontFamily="@font/poppins_regular"
+                    android:imeOptions="actionNext"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_x4"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/view_merchant_name_text_input"
+                android:layout_width="@dimen/space_x0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view_email_text_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginStart="@dimen/space_x8"
+                android:layout_marginTop="@dimen/space_x3"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxStrokeWidth="@dimen/extra_space_01"
+                app:startIconDrawable="@drawable/ic_svg_shop_icon_small"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/softer_gray"
+                android:paddingTop="@dimen/space_x0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/space_x3"
+                    android:hint="@string/store_name"
+                    android:imeOptions="actionNext"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_x4"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/view_product_category_text_input"
+                android:layout_width="@dimen/space_x0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_name_text_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginStart="@dimen/space_x8"
+                android:layout_marginTop="@dimen/space_x3"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxStrokeWidth="@dimen/extra_space_01"
+                app:startIconDrawable="@drawable/ic_svg_icon_person_small"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/softer_gray"
+                android:paddingTop="@dimen/space_x0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/space_x3"
+                    android:hint="@string/person_in_charge"
+                    android:imeOptions="actionNext"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_x4"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/view_merchant_phone_text_input"
+                android:layout_width="@dimen/space_x0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view_product_category_text_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginStart="@dimen/space_x8"
+                android:layout_marginTop="@dimen/space_x3"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxStrokeWidth="@dimen/extra_space_01"
+                app:startIconDrawable="@drawable/ic_svg_icon_password_small"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/softer_gray"
+                android:paddingTop="@dimen/space_x0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/space_x3"
+                    android:hint="@string/create_password"
+                    android:imeOptions="actionNext"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_x4"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/view_merchant_address_text_input"
+                android:layout_width="@dimen/space_x0"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_phone_text_input"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginStart="@dimen/space_x8"
+                android:layout_marginTop="@dimen/space_x3"
+                app:hintEnabled="false"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxStrokeWidth="@dimen/extra_space_01"
+                app:startIconDrawable="@drawable/ic_svg_icon_password_small"
+                app:endIconDrawable="@drawable/ic_password_selector"
+                app:boxBackgroundColor="@color/white"
+                app:boxStrokeColor="@color/softer_gray"
+                android:paddingTop="@dimen/space_x0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="60dp"
+                    android:layout_width="match_parent"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/space_x3"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textSize="@dimen/text_x4"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_button_request_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account"
+                android:fontFamily="@font/poppins_bold"
+                android:insetRight="@dimen/space_x2"
+                android:insetLeft="@dimen/space_x2"
+                android:insetBottom="@dimen/space_x1"
+                android:insetTop="@dimen/space_x1"
+                android:textAllCaps="false"
+                android:enabled="false"
+                android:layout_marginStart="@dimen/space_x8"
+                android:layout_marginEnd="@dimen/space_x8"
+                android:layout_marginTop="@dimen/space_x8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/space_x5"
+                android:backgroundTint="@color/login_button_state_color"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_address_text_input"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

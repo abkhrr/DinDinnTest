@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "Food Delivery Merchant"
+include ':app'
+include ':data'
+include ':domain'
+include ':feature:dashboard'
+include ':feature:auth'
+include ':utils'
+include ':feature:splash'
