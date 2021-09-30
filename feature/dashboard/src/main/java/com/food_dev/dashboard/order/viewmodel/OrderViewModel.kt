@@ -5,4 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OrderViewModel @Inject constructor(): BaseViewModel()
+class OrderViewModel @Inject constructor(): BaseViewModel(){
+
+}

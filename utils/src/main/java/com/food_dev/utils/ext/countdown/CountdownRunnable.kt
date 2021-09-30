@@ -7,6 +7,7 @@ import android.os.Handler
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
+import com.food_dev.utils.ext.common.launchDelayedFunction
 import com.food_dev.utils.ext.constant.Const.ONE_SECOND
 import com.food_dev.utils.ext.date.formatIntoMinAndSeconds
 import com.food_dev.utils.widget.ProgressStepBar
@@ -80,6 +81,7 @@ internal class CountDownRunnable(private val context: Context, private val handl
 
             _expiresIn -= ONE_SECOND
             handler.postDelayed(this, ONE_SECOND)
+            launchDelayedFunction(ONE_SECOND){}
         } else {
             _autoRejectView.visibility = View.INVISIBLE
             _timeLeftView.visibility = View.INVISIBLE

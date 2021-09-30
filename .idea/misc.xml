@@ -9,6 +9,11 @@
         <entry key="feature/auth/src/main/res/layout/fragment_first_time_update_profile.xml" value="0.25" />
         <entry key="feature/auth/src/main/res/layout/fragment_login.xml" value="0.22909698337951878" />
         <entry key="feature/auth/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="feature/dashboard/src/main/res/layout-land/view_item_ingredient.xml" value="0.1622350604032797" />
+        <entry key="feature/dashboard/src/main/res/layout-land/view_item_order.xml" value="0.2009226649331363" />
+        <entry key="feature/dashboard/src/main/res/layout-land/view_order_item.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/layout-sw600dp/view_item_ingredient.xml" value="0.37265625" />
+        <entry key="feature/dashboard/src/main/res/layout-sw600dp/view_order_item.xml" value="0.35546875" />
         <entry key="feature/dashboard/src/main/res/layout/activity_dashboard.xml" value="0.22291666666666668" />
         <entry key="feature/dashboard/src/main/res/layout/activity_main.xml" value="0.26848156121831745" />
         <entry key="feature/dashboard/src/main/res/layout/fragment_ingredient.xml" value="0.23697916666666666" />
@@ -17,7 +22,11 @@
         <entry key="feature/dashboard/src/main/res/layout/fragment_other_menu.xml" value="0.22291666666666668" />
         <entry key="feature/dashboard/src/main/res/layout/fragment_promo.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/fragment_transaction.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/layout/tempt.xml" value="0.16136572492529794" />
         <entry key="feature/dashboard/src/main/res/layout/view_ingredient_item_list.xml" value="0.26369981321548497" />
+        <entry key="feature/dashboard/src/main/res/layout/view_item_ingredient.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/layout/view_item_order.xml" value="0.25" />
+        <entry key="feature/dashboard/src/main/res/layout/view_order_item.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_order_item_list.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/menu/bottom_menu.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/menu/top_menu.xml" value="0.23697916666666666" />

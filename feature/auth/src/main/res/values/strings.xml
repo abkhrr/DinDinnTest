@@ -19,4 +19,6 @@
     <string name="terms_login">Phone number and Whatsapp will be used for communication about registration process, getting info for incomes, Banks update verification, and Withdrawal</string>
     <string name="open_hours">Open hours</string>
     <string name="closed_hours">Closed hours</string>
+    <string name="auto_reject">Auto Rejects: <b>2 mins</b></string>
+    <string name="at_time">At <b>01:34pm</b></string>
 </resources>
