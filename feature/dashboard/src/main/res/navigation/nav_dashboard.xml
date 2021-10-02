@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/fragment_ingredient_list"
-        android:name="com.food_dev.dashboard.ingredient.list.ui.IngredientListFragment"
+        android:name="com.food_dev.dashboard.ingredient.ui.IngredientListFragment"
         android:label="fragment_ingredient_list"
         tools:layout="@layout/fragment_ingredient_list">
 
@@ -29,11 +29,5 @@
             app:destination="@+id/fragment_ingredient"/>
 
     </fragment>
-
-    <fragment
-        android:id="@+id/fragment_ingredient"
-        android:name="com.food_dev.dashboard.ingredient.detail.ui.IngredientFragment"
-        android:label="fragment_ingredient"
-        tools:layout="@layout/fragment_ingredient"/>
 
 </navigation>

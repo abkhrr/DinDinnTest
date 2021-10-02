@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.databinding.library.baseAdapters.BR
+import com.food_dev.dashboard.BR
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.food_dev.dashboard.activity.viewmodel.MainViewModel

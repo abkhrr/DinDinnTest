@@ -5,7 +5,9 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class MainApplication: BaseApplication() {
+
     override fun getBaseUrl(): String {
         return BuildConfig.BASE_URL
     }
+
 }

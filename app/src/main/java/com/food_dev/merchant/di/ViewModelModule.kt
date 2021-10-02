@@ -4,12 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.food_dev.auth.activity.viewmodel.AuthViewModel
 import com.food_dev.auth.login.viewmodel.LoginViewModel
 import com.food_dev.auth.register.viewmodel.RegisterViewModel
-import com.food_dev.dashboard.ingredient.detail.viewmodel.IngredientViewModel
-import com.food_dev.dashboard.ingredient.list.viewmodel.IngredientListViewModel
+import com.food_dev.dashboard.ingredient.viewmodel.IngredientListViewModel
 import com.food_dev.dashboard.order.viewmodel.OrderViewModel
-import com.food_dev.dashboard.other.viewmodel.OtherMenuViewModel
-import com.food_dev.dashboard.promo.viewmodel.PromoViewModel
-import com.food_dev.dashboard.transaction.viewmodel.TransactionViewModel
 import com.food_dev.dashboard.activity.viewmodel.MainViewModel
 import com.food_dev.splash.viewmodel.SplashViewModel
 import com.food_dev.utils.base.viewmodel.ViewModelKey
@@ -57,13 +53,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelScoped
-    @ViewModelKey(IngredientViewModel::class)
-    abstract fun provideIngredientViewModel(viewModel: IngredientViewModel) : ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelScoped
-    @ViewModelKey(IngredientViewModel::class)
+    @ViewModelKey(IngredientListViewModel::class)
     abstract fun provideIngredientListViewModel(viewModel: IngredientListViewModel) : ViewModel
 
     @Binds

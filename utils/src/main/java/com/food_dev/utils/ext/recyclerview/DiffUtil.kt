@@ -19,8 +19,11 @@ interface DiffUtil {
             override fun getOldListSize() = old.size
 
             override fun getNewListSize() = new.size
-        })
 
+            override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
+                return super.getChangePayload(oldItemPosition, newItemPosition)
+            }
+        })
         diff.dispatchUpdatesTo(this)
     }
 }

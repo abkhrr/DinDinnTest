@@ -88,7 +88,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/view_merchant_name_text_input"
+                android:id="@+id/view_merchant_store_name_text_input"
                 android:layout_width="@dimen/space_x0"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/view_email_text_input"
@@ -119,10 +119,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/view_product_category_text_input"
+                android:id="@+id/view_merchant_pic_text_input"
                 android:layout_width="@dimen/space_x0"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/view_merchant_name_text_input"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_store_name_text_input"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/space_x8"
@@ -150,10 +150,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/view_merchant_phone_text_input"
+                android:id="@+id/view_merchant_password_text_input"
                 android:layout_width="@dimen/space_x0"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/view_product_category_text_input"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_pic_text_input"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/space_x8"
@@ -165,12 +165,14 @@
                 app:startIconDrawable="@drawable/ic_svg_icon_password_small"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="@color/softer_gray"
+                app:endIconMode="password_toggle"
+                app:passwordToggleDrawable="@drawable/ic_password_selector"
                 android:paddingTop="@dimen/space_x0">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_height="48dp"
                     android:layout_width="match_parent"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:padding="@dimen/space_x3"
                     android:hint="@string/create_password"
                     android:imeOptions="actionNext"
@@ -181,10 +183,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/view_merchant_address_text_input"
+                android:id="@+id/view_merchant_confirm_password_text_input"
                 android:layout_width="@dimen/space_x0"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/view_merchant_phone_text_input"
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_password_text_input"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/space_x8"
@@ -196,13 +198,15 @@
                 app:startIconDrawable="@drawable/ic_svg_icon_password_small"
                 app:endIconDrawable="@drawable/ic_password_selector"
                 app:boxBackgroundColor="@color/white"
+                app:endIconMode="password_toggle"
                 app:boxStrokeColor="@color/softer_gray"
+                app:passwordToggleDrawable="@drawable/ic_password_selector"
                 android:paddingTop="@dimen/space_x0">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_height="60dp"
+                    android:layout_height="48dp"
                     android:layout_width="match_parent"
-                    android:inputType="textMultiLine"
+                    android:inputType="textPassword"
                     android:padding="@dimen/space_x3"
                     android:hint="@string/confirm_password"
                     android:imeOptions="actionDone"
@@ -213,7 +217,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/view_button_request_account"
+                android:id="@+id/view_button_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/create_account"
@@ -230,7 +234,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="@dimen/space_x5"
                 android:backgroundTint="@color/login_button_state_color"
-                app:layout_constraintTop_toBottomOf="@+id/view_merchant_address_text_input"/>
+                app:layout_constraintTop_toBottomOf="@+id/view_merchant_confirm_password_text_input"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

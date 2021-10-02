@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="items"
+            type="com.food_dev.domain.dto.local.model.ingredient.Ingredient" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +43,7 @@
                 android:padding="10dp"
                 android:textSize="16sp"
                 tools:text="Satay Taichan Indonesia"
+                android:text="@{items.coreInfo.title}"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_bold"
                 android:maxLines="2"
@@ -74,11 +81,12 @@
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"/>
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/view_available_quantity_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:text="5"
+                        android:text="@{String.valueOf(items.coreInfo.availableQuantity)}"
                         android:textColor="@color/red_quantity"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"

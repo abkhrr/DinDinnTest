@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.food_dev.dashboard.ingredient.list.viewmodel.IngredientListViewModel" />
+            type="com.food_dev.dashboard.ingredient.viewmodel.IngredientListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

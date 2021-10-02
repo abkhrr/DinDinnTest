@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ingredient.list.ui.IngredientListFragment">
+        tools:context=".ingredient.ui.IngredientListFragment">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/view_tab_layout_ingredient"
@@ -20,13 +20,13 @@
             android:elevation="5dp" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/view_ingredient_list_swipe_refresh"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_tab_layout_ingredient"
-            android:id="@+id/view_ingredient_list_swipe_refresh">
+            app:layout_constraintTop_toBottomOf="@+id/view_tab_layout_ingredient">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_collection_rv_ingredient"

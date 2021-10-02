@@ -1,5 +1,6 @@
 package com.food_dev.splash.viewmodel
 
+import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.food_dev.domain.repositories.LocalRepository
@@ -25,6 +26,13 @@ class SplashViewModel @Inject constructor(
             _isLoggedIn.value = Event(false)
         } else {
             _isLoggedIn.value = Event(true)
+        }
+    }
+
+    fun setupFirebaseToken(token: String?){
+        val existFirebaseToken = localRepository.getFirebaseToken()
+        if(TextUtils.isEmpty(existFirebaseToken)){
+            localRepository.setFirebaseToken(token)
         }
     }
 

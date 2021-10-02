@@ -20,7 +20,8 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(false)
+        setupOnCreate()
+        setupSocket()
     }
 
     override fun onStart() {
@@ -51,11 +52,11 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
     ) {
         super.onViewCreated(view, savedInstanceState)
         performDataBinding()
+        initViewCreated()
         setupAdapter()
         setupArguments()
         setupListener()
         setupListener()
-        setupViewPager()
         initAPI()
         setupRv()
         setupObserver()
@@ -68,10 +69,12 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
         binding.executePendingBindings()
     }
 
+    protected open fun initViewCreated(){}
     protected open fun setupOnCreate(){}
+    protected open fun setupSocket(){}
+    protected open fun setupSwipeRefresh(){}
     protected open fun setupArguments(){}
     protected open fun setupAdapter(){}
-    protected open fun setupViewPager(){}
     protected open fun setupListener(){}
     protected open fun initAPI(){}
     protected open fun setupRv(){}

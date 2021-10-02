@@ -9,11 +9,11 @@ import android.view.View
 import android.widget.TextView
 import com.food_dev.utils.ext.common.launchDelayedFunction
 import com.food_dev.utils.ext.constant.Const.ONE_SECOND
-import com.food_dev.utils.ext.date.formatIntoMinAndSeconds
+import com.food_dev.utils.ext.date.DateUtils.formatIntoMinAndSeconds
 import com.food_dev.utils.widget.ProgressStepBar
 import com.google.android.material.button.MaterialButton
 
-internal class CountDownRunnable(private val context: Context, private val handler: Handler): Runnable {
+class CountDownRunnable(private val context: Context, private val handler: Handler): Runnable {
 
     var _expiresIn: Long = 0
     var _alertIn: Long = 0

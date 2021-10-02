@@ -14,4 +14,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@android:drawable/ic_search_category_default</item>
+        <item name="queryBackground">@null</item>
+        <item name="searchHintIcon">@android:drawable/ic_search_category_default</item>
+        <item name="queryHint">Search</item>
+        <item name="hintTextColor">@color/softer_gray</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

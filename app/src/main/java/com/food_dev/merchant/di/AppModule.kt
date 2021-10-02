@@ -7,6 +7,8 @@ import com.food_dev.domain.prefs.AppPreferences
 import com.food_dev.merchant.MainApplication
 import com.food_dev.utils.ext.constant.Const
 import com.food_dev.utils.ext.qualifiers.PreferenceInfo
+import com.food_dev.utils.socket.AppSocket
+import com.food_dev.utils.socket.AppSocketFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,6 +46,12 @@ object AppModule {
     @Singleton
     fun provideConnectivityManager(context: MainApplication): ConnectivityManager {
         return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    }
+
+    @Provides
+    @Singleton
+    fun provideExampleSocket(): AppSocket {
+        return AppSocketFactory.foodDeliverySocket()
     }
 
 }

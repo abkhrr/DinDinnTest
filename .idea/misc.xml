@@ -6,11 +6,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11770833333333333" />
         <entry key="feature/auth/src/main/res/layout/activity_auth.xml" value="0.23697916666666666" />
         <entry key="feature/auth/src/main/res/layout/fragment_auth_starter.xml" value="0.10364583333333334" />
-        <entry key="feature/auth/src/main/res/layout/fragment_first_time_update_profile.xml" value="0.25" />
-        <entry key="feature/auth/src/main/res/layout/fragment_login.xml" value="0.22909698337951878" />
+        <entry key="feature/auth/src/main/res/layout/fragment_first_time_update_profile.xml" value="0.2074030198211812" />
+        <entry key="feature/auth/src/main/res/layout/fragment_login.xml" value="0.18813685649609516" />
         <entry key="feature/auth/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="feature/dashboard/src/main/res/layout-land/view_item_ingredient.xml" value="0.1622350604032797" />
-        <entry key="feature/dashboard/src/main/res/layout-land/view_item_order.xml" value="0.2009226649331363" />
+        <entry key="feature/dashboard/src/main/res/layout-land/view_item_order.xml" value="0.23331305502627364" />
         <entry key="feature/dashboard/src/main/res/layout-land/view_order_item.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout-sw600dp/view_item_ingredient.xml" value="0.37265625" />
         <entry key="feature/dashboard/src/main/res/layout-sw600dp/view_order_item.xml" value="0.35546875" />
@@ -23,13 +23,18 @@
         <entry key="feature/dashboard/src/main/res/layout/fragment_promo.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/fragment_transaction.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/tempt.xml" value="0.16136572492529794" />
+        <entry key="feature/dashboard/src/main/res/layout/tmp.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_ingredient_item_list.xml" value="0.26369981321548497" />
+        <entry key="feature/dashboard/src/main/res/layout/view_item_addon.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_item_ingredient.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_item_order.xml" value="0.25" />
+        <entry key="feature/dashboard/src/main/res/layout/view_item_order_ingredient.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_order_item.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_order_item_list.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/layout/view_search_bar.xml" value="0.1896955699421031" />
         <entry key="feature/dashboard/src/main/res/menu/bottom_menu.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/menu/top_menu.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/menu/top_search_menu.xml" value="0.23697916666666666" />
         <entry key="feature/splash/src/main/res/layout/activity_splash.xml" value="0.27081838723194207" />
         <entry key="utils/src/main/res/drawable/ic_abstract_info_bg.xml" value="0.3796875" />
         <entry key="utils/src/main/res/drawable/ic_arrow_back_light_24.xml" value="0.253125" />
@@ -44,6 +49,7 @@
         <entry key="utils/src/main/res/drawable/ic_menu_order.xml" value="0.13385416666666666" />
         <entry key="utils/src/main/res/drawable/ic_open_24.xml" value="0.3796875" />
         <entry key="utils/src/main/res/drawable/ic_password_invisible.xml" value="0.253125" />
+        <entry key="utils/src/main/res/drawable/ic_password_selector.xml" value="0.253125" />
         <entry key="utils/src/main/res/drawable/ic_svg_email_icon_small.xml" value="0.253125" />
         <entry key="utils/src/main/res/drawable/ic_svg_icon_password_small.xml" value="0.253125" />
         <entry key="utils/src/main/res/drawable/ic_svg_icon_person_small.xml" value="0.253125" />
