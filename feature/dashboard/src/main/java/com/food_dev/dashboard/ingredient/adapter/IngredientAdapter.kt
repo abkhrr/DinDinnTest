@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.food_dev.dashboard.R
 import com.food_dev.dashboard.databinding.ViewItemIngredientBinding
 import com.food_dev.domain.dto.local.model.ingredient.Ingredient
-import com.food_dev.utils.R
 import com.food_dev.utils.ext.recyclerview.DiffUtil
 import java.util.*
 import kotlin.properties.Delegates
@@ -47,6 +48,17 @@ class IngredientAdapter: RecyclerView.Adapter<IngredientAdapter.ViewHolder>(), D
                     .error(R.drawable.placeholder)
                     .into(binding.viewItemImage)
             }
+
+            if(items.coreInfo.availableQuantity < 10){
+                binding.viewAvailableQuantity.backgroundTintList = ContextCompat.getColorStateList(binding.root.context, android.R.color.darker_gray)
+                binding.viewLayoutAvailableQty.setStrokeColor(ContextCompat.getColorStateList(binding.root.context, android.R.color.darker_gray))
+                binding.viewAvailableQuantityText.setTextColor(ContextCompat.getColorStateList(binding.root.context, android.R.color.darker_gray))
+            } else {
+                binding.viewAvailableQuantity.backgroundTintList = ContextCompat.getColorStateList(binding.root.context, R.color.red_quantity)
+                binding.viewLayoutAvailableQty.setStrokeColor(ContextCompat.getColorStateList(binding.root.context, R.color.red_quantity))
+                binding.viewAvailableQuantityText.setTextColor(ContextCompat.getColorStateList(binding.root.context, R.color.red_quantity))
+            }
+
             binding.executePendingBindings()
         }
     }

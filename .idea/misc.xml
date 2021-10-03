@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11770833333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.253125" />
         <entry key="feature/auth/src/main/res/layout/activity_auth.xml" value="0.23697916666666666" />
         <entry key="feature/auth/src/main/res/layout/fragment_auth_starter.xml" value="0.10364583333333334" />
         <entry key="feature/auth/src/main/res/layout/fragment_first_time_update_profile.xml" value="0.2074030198211812" />
