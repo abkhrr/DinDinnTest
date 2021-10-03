@@ -31,7 +31,6 @@ abstract class BaseActivity<VB: ViewDataBinding, VM: BaseViewModel> : AppCompatA
     }
 
     abstract fun onInitViews()
-
     protected open fun setupArguments(){}
     protected open fun setupAdapter(){}
     protected open fun setupViewPager(){}

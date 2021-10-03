@@ -7,7 +7,7 @@ inline fun <T> T.applyIf(predicate: Boolean, block: T.() -> Unit): T = apply {
     if (predicate) block(this)
 }
 
-fun launchDelayedFunction(timeMillis: Long = 500, action: () -> Unit) {
+fun launchDelayedFunction(timeMillis: Long = 3000, action: () -> Unit) {
     Handler(Looper.getMainLooper()).postDelayed({ action() }, timeMillis)
 }
 

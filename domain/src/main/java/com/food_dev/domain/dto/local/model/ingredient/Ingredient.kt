@@ -11,7 +11,7 @@ data class Ingredient(
     @SerializedName("coreInfo") val coreInfo: IngredientCoreInfo,
     @SerializedName("priceInfo") val priceInfo: IngredientPriceInfo,
     @SerializedName("categoryInfo") val categoryInfo: IngredientCategoryInfo,
-    @SerializedName("ownerId") val ownerId: Int,
+    @SerializedName("ownerId") val ownerId: String,
     @SerializedName("images") val images: List<IngredientImages>,
     @SerializedName("addon") val addon: List<Int>
 ): Parcelable

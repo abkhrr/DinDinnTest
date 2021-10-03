@@ -17,6 +17,7 @@
         android:theme="@style/Theme.FoodDeliveryMerchant">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/view_layout_toolbar_base"
             android:layout_width="0dp"
             android:layout_height="?android:attr/actionBarSize"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,8 +40,12 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/dashboard_nav_host"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_layout_toolbar_base"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:navGraph="@navigation/nav_dashboard"
             app:defaultNavHost="true"

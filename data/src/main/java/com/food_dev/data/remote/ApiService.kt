@@ -1,9 +1,6 @@
 package com.food_dev.data.remote
 
-import com.food_dev.domain.dto.api.AuthResponse
-import com.food_dev.domain.dto.api.LoginRequest
-import com.food_dev.domain.dto.api.RegisterRequest
-import com.food_dev.domain.dto.api.WelcomeProfileRequest
+import com.food_dev.domain.dto.api.*
 import com.food_dev.domain.dto.local.model.ingredient.Ingredient
 import com.food_dev.domain.dto.local.model.ingredient.showcase.IngredientShowcase
 import com.food_dev.domain.dto.local.model.order.Order
@@ -25,6 +22,9 @@ interface ApiService {
 
     @GET(ApiEndPoint.API_GET_MERCHANT_SHOWCASE)
     suspend fun getMerchantShowcase(@Path("merchantId") merchantId: String): BaseArrayResponse<IngredientShowcase>
+
+    @GET(ApiEndPoint.API_GET_SHOWCASE_INGREDIENT)
+    suspend fun getShowcaseIngredient(@Path("showcaseId") showcaseId: Int): BaseObjectResponse<ShowcaseIngredientResponse>
 
     @GET(ApiEndPoint.API_GET_MERCHANT_ORDER)
     suspend fun getMerchantOrder(@Path("merchantId") merchantId: String): BaseArrayResponse<Order>

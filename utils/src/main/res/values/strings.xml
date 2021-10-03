@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FDLV</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">FDLVChannel</string>
+    <string name="default_notification_channel_id2">FDLVDefaultChannel</string>
 </resources>

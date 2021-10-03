@@ -1,8 +1,11 @@
 package com.food_dev.dashboard.order.ui
 
 import android.content.res.Configuration
+import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import com.food_dev.dashboard.BR
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -16,15 +19,9 @@ import com.food_dev.dashboard.order.viewmodel.OrderViewModel
 import com.food_dev.domain.dto.local.model.order.Order
 import com.food_dev.utils.base.BaseFragment
 import com.food_dev.utils.ext.event.EventObserver
-import com.food_dev.utils.ext.log.MyLog
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
-import io.socket.client.IO
 import io.socket.client.Socket
-import io.socket.emitter.Emitter
-import java.lang.Exception
-import java.net.URISyntaxException
 
 @AndroidEntryPoint
 @FragmentScoped
@@ -39,74 +36,72 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderViewModel>(), Orde
     override val binding: FragmentOrderBinding by lazy { FragmentOrderBinding.inflate(layoutInflater) }
     override val bindingVariable: Int = BR.viewModel
 
-    private lateinit var mSocket: Socket
+    private var isPortrait: Boolean = true
     private val orderAdapter: OrderAdapter by lazy { OrderAdapter(this@OrderFragment) }
     private val orderList: MutableList<Order> = mutableListOf()
-    private var isPortrait  = true
 
-    override fun setupOnCreate() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-    }
-
-    override fun setupSocket() {
-        try {
-            mSocket = IO.socket("https://io-idcoding.tech/food-delivery")
-        } catch (e: URISyntaxException){
-            MyLog.e(TAG, e.message.toString())
-        }
-        mSocket.on("incomingOrder", incomingOrder)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.top_menu, menu)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
+    }
+
+    private fun setup(){
+        setupDashboardSwipeRefresh()
+        setupOrderObserver()
+        setupOrderRv()
+    }
+
     override fun onAcceptClicked(order: Order) {
         viewModel.acceptOrder(order.id)
     }
 
-    override fun setupSwipeRefresh() {
+    private fun setupDashboardSwipeRefresh() {
+        viewModel.getMerchantOrder()
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.swipeRefreshLayout.isRefreshing = false
             viewModel.getMerchantOrder()
         }
     }
 
-    override fun setupObserver() {
-        viewModel.getMerchantOrder()
+    private fun setupOrderObserver() {
         viewModel.orderData.observe(viewLifecycleOwner, { items ->
-            orderList.clear()
-            orderList.addAll(items)
+            orderAdapter.orderItems = items
         })
 
-        viewModel.confirmOrderResult.observe(viewLifecycleOwner, EventObserver{ items ->
-            orderList.remove(items)
+        viewModel.confirmOrderResult.observe(viewLifecycleOwner, EventObserver{ isResultOk ->
+            if (isResultOk){
+                viewModel.getMerchantOrder()
+            }
         })
     }
 
-    override fun setupRv() {
-        orderAdapter.orderItems = orderList
+    private fun setupOrderRv() {
+        isPortrait = requireContext().resources.configuration.orientation != Configuration.ORIENTATION_LANDSCAPE
         val manager = if(isPortrait) {
-            LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
+            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         } else {
-            LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         }
         binding.viewCollectionRvOrder.apply {
+            layoutManager = manager
             adapter       = orderAdapter
             itemAnimator  = DefaultItemAnimator()
-            layoutManager = manager
         }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        isPortrait = newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE
-        setupRv()
-    }
-
-    private var incomingOrder = Emitter.Listener {
-        val order: Order = Gson().fromJson(it[0].toString(), Order::class.java)
-        orderList.add(order)
+        isPortrait = (newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE)
+        setupOrderRv()
     }
 
     override fun onPause() {
@@ -118,4 +113,6 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderViewModel>(), Orde
         super.onDestroy()
         orderAdapter.removeCallbacks()
     }
+
+
 }

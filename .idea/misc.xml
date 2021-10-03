@@ -29,6 +29,7 @@
         <entry key="feature/dashboard/src/main/res/layout/view_item_ingredient.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_item_order.xml" value="0.25" />
         <entry key="feature/dashboard/src/main/res/layout/view_item_order_ingredient.xml" value="0.23697916666666666" />
+        <entry key="feature/dashboard/src/main/res/layout/view_item_order_land.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_order_item.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_order_item_list.xml" value="0.23697916666666666" />
         <entry key="feature/dashboard/src/main/res/layout/view_search_bar.xml" value="0.1896955699421031" />

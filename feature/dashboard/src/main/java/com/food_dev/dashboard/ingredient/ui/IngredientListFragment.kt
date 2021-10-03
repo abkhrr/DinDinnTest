@@ -1,8 +1,10 @@
 package com.food_dev.dashboard.ingredient.ui
 
 import android.content.res.Configuration
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
 import androidx.cardview.widget.CardView
@@ -18,7 +20,6 @@ import com.food_dev.dashboard.ingredient.adapter.IngredientAdapter
 import com.food_dev.dashboard.ingredient.viewmodel.IngredientListViewModel
 import com.food_dev.domain.dto.local.model.ingredient.showcase.IngredientShowcase
 import com.food_dev.utils.base.BaseFragment
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
@@ -32,14 +33,10 @@ class IngredientListFragment : BaseFragment<FragmentIngredientListBinding, Ingre
     override val binding: FragmentIngredientListBinding by lazy { FragmentIngredientListBinding.inflate(layoutInflater) }
     private val ingredientAdapter: IngredientAdapter by lazy { IngredientAdapter() }
     override val bindingVariable: Int = BR.viewModel
-    private val ingredientShowcase: MutableList<IngredientShowcase> = mutableListOf()
-    private var isPortrait  = true
+    private var isPortrait: Boolean = true
 
-    companion object {
-        private val TAG = IngredientListFragment::class.java.simpleName
-    }
-
-    override fun setupOnCreate() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
 
@@ -50,28 +47,44 @@ class IngredientListFragment : BaseFragment<FragmentIngredientListBinding, Ingre
         searchView.setOnQueryTextListener(onSearchQueryTextListener)
     }
 
-    override fun initViewCreated() {
-        binding.viewTabLayoutIngredient.addOnTabSelectedListener(onTabSelectedListener)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setup()
     }
 
-    override fun setupSwipeRefresh() {
+    private fun setup(){
+        setupRefreshShowcase()
+        setupShowcaseObserver()
+        setupRvShowcase()
+    }
+
+
+    private fun setupRefreshShowcase() {
         binding.viewIngredientListSwipeRefresh.setOnRefreshListener {
             binding.viewIngredientListSwipeRefresh.isRefreshing = false
             viewModel.searchMerchantShowcase()
         }
     }
 
-    override fun setupObserver() {
+    private fun setupShowcaseObserver() {
         viewModel.searchMerchantShowcase()
         viewModel.showcaseData.observe(viewLifecycleOwner, { showcase ->
-            ingredientShowcase.clear()
-            ingredientShowcase.addAll(showcase)
             val tabTitle = showcase.map { it.showcaseTitle }
             setupTabs(tabTitle)
+            for(element in showcase){
+                binding.viewTabLayoutIngredient.addOnTabSelectedListener(onTabSelectedListener(
+                    element
+                ))
+            }
+        })
+
+        viewModel.showcaseIngredient.observe(viewLifecycleOwner, { ingredient ->
+            ingredientAdapter.addList(ingredient)
         })
     }
 
-    override fun setupRv() {
+    private fun setupRvShowcase() {
+        isPortrait = requireContext().resources.configuration.orientation != Configuration.ORIENTATION_LANDSCAPE
         binding.viewCollectionRvIngredient.apply {
             layoutManager = if(isPortrait) {
                 GridLayoutManager(this.context, 2, RecyclerView.VERTICAL, false)
@@ -91,15 +104,20 @@ class IngredientListFragment : BaseFragment<FragmentIngredientListBinding, Ingre
     }
 
     private lateinit var selectedTab: String
-    private val onTabSelectedListener = object: TabLayout.OnTabSelectedListener {
+    private fun onTabSelectedListener(showcase: IngredientShowcase) = object: TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab?) {
-            selectedTab = tab?.text.toString()
-            if(ingredientShowcase.isNotEmpty()) {
-                ingredientAdapter.ingredientItem = ingredientShowcase.first { it.showcaseTitle == selectedTab }.ingredients
+            selectedTab    = tab?.text.toString()
+            val idSelected = selectedTab == showcase.showcaseTitle
+            if (idSelected){
+                viewModel.getShowcaseIngredient(showcase.id)
             }
         }
-        override fun onTabUnselected(tab: TabLayout.Tab?) {}
-        override fun onTabReselected(tab: TabLayout.Tab?) {}
+
+        override fun onTabUnselected(tab: TabLayout.Tab?) {
+        }
+
+        override fun onTabReselected(tab: TabLayout.Tab?) {
+        }
     }
 
     private val onSearchQueryTextListener = object: SearchView.OnQueryTextListener {
@@ -114,8 +132,8 @@ class IngredientListFragment : BaseFragment<FragmentIngredientListBinding, Ingre
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        isPortrait = newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE
-        setupRv()
+        isPortrait = (newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE)
+        setupRvShowcase()
     }
 
 }

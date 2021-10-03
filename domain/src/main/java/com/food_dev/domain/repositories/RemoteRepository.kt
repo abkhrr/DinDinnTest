@@ -1,9 +1,6 @@
 package com.food_dev.domain.repositories
 
-import com.food_dev.domain.dto.api.AuthResponse
-import com.food_dev.domain.dto.api.LoginRequest
-import com.food_dev.domain.dto.api.RegisterRequest
-import com.food_dev.domain.dto.api.WelcomeProfileRequest
+import com.food_dev.domain.dto.api.*
 import com.food_dev.domain.dto.local.model.ingredient.Ingredient
 import com.food_dev.domain.dto.local.model.ingredient.showcase.IngredientShowcase
 import com.food_dev.domain.dto.local.model.order.Order
@@ -32,6 +29,7 @@ interface RemoteRepository {
 
     suspend fun getMerchantIngredient(merchantId: String): ApiResponse<BaseArrayResponse<Ingredient>>
     suspend fun getMerchantShowcase(merchantId: String): ApiResponse<BaseArrayResponse<IngredientShowcase>>
+    suspend fun getShowcaseIngredient(showcaseId: Int): ApiResponse<BaseObjectResponse<ShowcaseIngredientResponse>>
     suspend fun getMerchantOrder(merchantId: String): ApiResponse<BaseArrayResponse<Order>>
     suspend fun confirmOrder(orderId: Int): ApiResponse<BaseObjectResponse<Order>>
     suspend fun expiredOrder(orderId: Int): ApiResponse<BaseObjectResponse<Order>>

@@ -7,6 +7,7 @@
     <string name="more">More</string>
     <string name="ingredient">Ingredient</string>
     <string name="accept">Accept</string>
+    <string name="confirmed">Confirmed</string>
     <string name="available">Available</string>
     <string name="expired">Expired</string>
 
@@ -14,11 +15,12 @@
     <string name="total_items">#<b>%1$d</b></string>
     <string name="quantity_txt">x<b>%1$s</b></string>
     <plurals name="items_total">
-        <item quantity="one">%1$d item</item>
-        <item quantity="other">%1$d items</item>
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
     </plurals>
 
     <string name="menu_title"><b>%1$d</b> %2$s</string>
     <string name="addon_title"><b>%1$d</b> %2$s</string>
     <string name="search">Search</string>
+    <string name="auto_reject">Auto Reject</string>
 </resources>

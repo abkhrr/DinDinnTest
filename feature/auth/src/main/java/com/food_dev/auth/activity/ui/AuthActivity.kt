@@ -14,15 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>() {
 
-    companion object{
-        @JvmStatic
-        fun start(activity: Activity){
-            val intent = Intent(activity, this::class.java)
-            activity.startActivity(intent)
-            activity.finish()
-        }
-    }
-
     override val binding: ActivityAuthBinding by lazy { ActivityAuthBinding.inflate(layoutInflater) }
     override val viewModel: AuthViewModel by viewModels()
     override val bindingVariable: Int = BR.viewModel

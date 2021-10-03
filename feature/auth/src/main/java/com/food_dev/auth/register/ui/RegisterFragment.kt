@@ -1,5 +1,6 @@
 package com.food_dev.auth.register.ui
 
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.food_dev.auth.BR
 import com.food_dev.auth.activity.ui.AuthActivity
@@ -28,6 +29,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
             navigate(NavigationCommand.Back)
         }
 
+        addConfirmPasswordTextChange()
         binding.viewButtonRegister.setOnClickListener {
             val storeName       = getStringTextFromTextInput(binding.viewMerchantStoreNameTextInput.editText)
             val email           = getStringTextFromTextInput(binding.viewEmailTextInput.editText)
@@ -37,6 +39,19 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
 
             if(password != confirmPassword) viewModel.showSnack.value = "Password And Confirm Password Must Match!"
             viewModel.registerUser(email, storeName, merchantPIC, password)
+        }
+    }
+
+    private fun addConfirmPasswordTextChange(){
+        binding.viewMerchantConfirmPasswordTextInput.editText?.doOnTextChanged { text, _, _, _ ->
+            val textLength = text?.length
+            textLength?.let { length ->
+                val password        = getStringTextFromTextInput(binding.viewMerchantPasswordTextInput.editText)
+                val confirmPassword = getStringTextFromTextInput(binding.viewMerchantConfirmPasswordTextInput.editText)
+                binding.viewButtonRegister.apply {
+                    isEnabled = password == confirmPassword && password.length >= 8 && confirmPassword.length >= 8
+                }
+            }
         }
     }
 

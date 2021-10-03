@@ -7,8 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class IngredientShowcase(
-    @SerializedName("id") var id: Int,
+    @SerializedName("_id") var id: Int,
     @SerializedName("ownerId") var merchantId: String,
-    @SerializedName("showcaseTitle") var showcaseTitle: String,
-    @SerializedName("ingredients") var ingredients: List<Ingredient>
+    @SerializedName("showcaseTitle") var showcaseTitle: String
 ): Parcelable

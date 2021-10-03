@@ -3,9 +3,5 @@ apply from: "$rootDir/build-system/dependencies.gradle"
 dependencies {
     // Firebase
     implementation platform(firebaseLibs.bom)
-    implementation firebaseLibs.analyticsKtx
-    implementation firebaseLibs.crashlitycsKtx
     implementation firebaseLibs.messaging
-    implementation firebaseLibs.basement
-    implementation firebaseLibs.firebaseAsync
 }

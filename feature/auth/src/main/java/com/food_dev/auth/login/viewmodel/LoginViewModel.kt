@@ -34,6 +34,7 @@ class LoginViewModel @Inject constructor(
             when(val result = remoteRepository.login(loginRequest)){
                 is ApiResponse.Success<BaseObjectResponse<AuthResponse>> -> {
                     localRepository.setCurrentLoginMode(Const.LoggedInMode.LOGGED_IN)
+                    localRepository.setMerchantId(result.data.data.id)
                     _loginDataValue.value = Event(true)
                 }
                 is ApiResponse.Error -> {

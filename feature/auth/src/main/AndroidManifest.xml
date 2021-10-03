@@ -4,9 +4,14 @@
 
     <application>
         <activity
-            android:name=".activity.ui.AuthActivity"
+            android:name="com.food_dev.auth.activity.ui.AuthActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.food_dev.auth.activity.ui.AuthActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

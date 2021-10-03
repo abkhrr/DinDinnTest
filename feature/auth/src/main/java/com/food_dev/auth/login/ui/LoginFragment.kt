@@ -1,5 +1,6 @@
 package com.food_dev.auth.login.ui
 
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.food_dev.auth.activity.ui.AuthActivity
 import com.food_dev.auth.databinding.FragmentLoginBinding
@@ -24,14 +25,24 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override val bindingVariable: Int = BR.viewModel
 
     override fun initOnClick() {
+        addPasswordOnTextChange()
         binding.viewLoginButton.setOnClickListener {
             val email    = getStringTextFromTextInput(binding.viewEmailTextInput.editText)
-            val password = getStringTextFromTextInput(binding.viewEmailTextInput.editText)
+            val password = getStringTextFromTextInput(binding.viewPasswordTextInput.editText)
             viewModel.loginMerchant(email, password)
         }
 
         binding.viewRegisterButton.setOnClickListener {
             navigate(NavigationCommand.To(LoginFragmentDirections.toRegister()))
+        }
+    }
+
+    private fun addPasswordOnTextChange(){
+        binding.viewPasswordTextInput.editText?.doOnTextChanged { text, _, _, _ ->
+            val textLength = text?.length
+            textLength?.let { length ->
+                binding.viewLoginButton.isEnabled = length >= 6
+            }
         }
     }
 

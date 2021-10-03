@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 
 fun Activity.startMainActivity(activity: Activity) {
-    val intent = sendActivityIntent(activity, "com.food_dev.auth.activity.ui.AuthActivity")
+    val intent = sendActivityIntent(activity, "com.food_dev.dashboard.activity.ui.MainActivity")
     activity.finish()
     startActivity(intent)
 }

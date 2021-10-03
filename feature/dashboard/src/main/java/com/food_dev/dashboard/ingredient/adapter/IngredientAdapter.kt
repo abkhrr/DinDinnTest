@@ -19,7 +19,12 @@ class IngredientAdapter: RecyclerView.Adapter<IngredientAdapter.ViewHolder>(), D
         notifyTheAdapter(old, new) { oldItems, newItems -> oldItems.id == newItems.id }
     }
 
-    private var filteredList = ingredientItem
+    var originalList: List<Ingredient> = listOf()
+
+    fun addList(list: List<Ingredient>){
+        ingredientItem = list
+        originalList   = ingredientItem
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -36,11 +41,12 @@ class IngredientAdapter: RecyclerView.Adapter<IngredientAdapter.ViewHolder>(), D
             val items     = ingredientItem[position]
             binding.items = items
 
-            Glide.with(binding.root.context)
-                .load(items.images[0])
-                .error(R.drawable.placeholder)
-                .into(binding.viewItemImage)
-
+            if (items.images.isNotEmpty()){
+                Glide.with(binding.root.context)
+                    .load(items.images[0].imageUrl)
+                    .error(R.drawable.placeholder)
+                    .into(binding.viewItemImage)
+            }
             binding.executePendingBindings()
         }
     }
@@ -49,22 +55,20 @@ class IngredientAdapter: RecyclerView.Adapter<IngredientAdapter.ViewHolder>(), D
 
         override fun performFiltering(charSequence: CharSequence): FilterResults {
             val searchedText = charSequence.trim().toString().lowercase(Locale.getDefault())
-            val filteredList = when {
-                searchedText.isBlank() -> ingredientItem
+            val filters = when {
+                searchedText.isBlank() -> originalList
                 else -> {
-                    ingredientItem.filter {
-                        it.coreInfo.title.lowercase(Locale.getDefault()).contains(searchedText)
-                    }
+                    ingredientItem.filter { it.coreInfo.title.lowercase(Locale.getDefault()).contains(searchedText) }
                 }
             }
-            val filterResults    = FilterResults()
-            filterResults.values = filteredList
+            val filterResults      = FilterResults()
+            filterResults.values   = filters
             return filterResults
         }
 
         override fun publishResults(text: CharSequence, results: FilterResults) {
             @Suppress("UNCHECKED_CAST")
-            filteredList = results.values as List<Ingredient>
+            ingredientItem = results.values as List<Ingredient>
         }
 
     }

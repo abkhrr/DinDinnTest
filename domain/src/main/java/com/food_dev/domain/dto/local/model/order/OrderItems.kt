@@ -11,6 +11,6 @@ data class OrderItems(
     @SerializedName("itemId") var itemId: Ingredient,
     @SerializedName("quantity") var quantity: Int,
     @SerializedName("price") var price: Int,
-    @SerializedName("orderNotes") var notes: Int,
+    @SerializedName("orderNotes") var notes: String,
     @SerializedName("addons") var addon: List<OrderAddon>
 ): Parcelable

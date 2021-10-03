@@ -1,10 +1,7 @@
 package com.food_dev.data.repositoryimpl
 
 import com.food_dev.data.remote.ApiService
-import com.food_dev.domain.dto.api.AuthResponse
-import com.food_dev.domain.dto.api.LoginRequest
-import com.food_dev.domain.dto.api.RegisterRequest
-import com.food_dev.domain.dto.api.WelcomeProfileRequest
+import com.food_dev.domain.dto.api.*
 import com.food_dev.domain.dto.local.model.ingredient.Ingredient
 import com.food_dev.domain.dto.local.model.ingredient.showcase.IngredientShowcase
 import com.food_dev.domain.dto.local.model.order.Order
@@ -51,6 +48,15 @@ class RemoteRepositoryImpl @Inject constructor(private val apiService: ApiServic
     override suspend fun getMerchantShowcase(merchantId: String): ApiResponse<BaseArrayResponse<IngredientShowcase>> {
         return try {
             val response = apiService.getMerchantShowcase(merchantId)
+            return ApiResponse.Success(response)
+        } catch (e: Exception){
+            getException(e)
+        }
+    }
+
+    override suspend fun getShowcaseIngredient(showcaseId: Int): ApiResponse<BaseObjectResponse<ShowcaseIngredientResponse>> {
+        return try {
+            val response = apiService.getShowcaseIngredient(showcaseId)
             return ApiResponse.Success(response)
         } catch (e: Exception){
             getException(e)

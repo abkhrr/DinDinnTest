@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/ingredientListFragment"
+        android:id="@+id/fragment_ingredient_list"
         android:icon="@drawable/ic_dish_black_24"
         app:iconTint="?attr/colorOnSecondary"
         android:menuCategory="secondary"
